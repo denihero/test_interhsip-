@@ -16,7 +16,13 @@ setupLocator() {
 
   //Service
   getIt.registerLazySingleton<PostDataSource>(
-      () => PostDataSourceImpl(client: Dio()));
+      () => PostDataSourceImpl(client: Dio(BaseOptions(
+        baseUrl: 'https://fakestoreapi.com',
+        connectTimeout: 5000,
+        receiveTimeout: 5000
+      )
+
+      )));
   
   
   //Repositories

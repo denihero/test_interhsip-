@@ -11,12 +11,4 @@ class Post {
   Future<Either<DioError, List<ProductModel>>> getPost() async {
     return await postRepositories.getPost();
   }
-
-  Future<Either<DioError, void>> deletePost(int id) async {
-    return await postRepositories.deletePost(id);
-  }
-
-  Future<Either<DioError, void>> addPost(String title, String subtitle) async {
-    return await postRepositories.addPost(title, subtitle);
-  }
 }

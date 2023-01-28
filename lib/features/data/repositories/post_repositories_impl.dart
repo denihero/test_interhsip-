@@ -8,17 +8,6 @@ class PostRepositoriesImpl extends PostRepositories {
   PostRepositoriesImpl({required this.postDataSourceImpl});
 
   final PostDataSource postDataSourceImpl;
-
-  @override
-  Future<Either<DioError, void>> addPost(String title, String subtitle) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<DioError, void>> deletePost(int id) {
-    throw UnimplementedError();
-  }
-
   @override
   Future<Either<DioError, List<ProductModel>>> getPost() async {
     try {
