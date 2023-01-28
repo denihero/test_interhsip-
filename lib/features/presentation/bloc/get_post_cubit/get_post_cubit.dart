@@ -24,4 +24,12 @@ class GetPostCubit extends Cubit<GetPostState> {
     });
 
   }
+
+  void addPost(ProductModel product) async {
+    emit(GetPostLoading());
+
+    ls.insert(0, product);
+
+    emit(GetPostSuccess(ls));
+  }
 }

@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:test_project_intership/features/data/model/post_model.dart';
 
 class DetailPage extends StatefulWidget {
@@ -39,12 +41,21 @@ class _DetailPageState extends State<DetailPage> {
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Center(
-                    child: Image.network(
-                      widget.product.image!,
+                    child: CachedNetworkImage(
+                      imageUrl: widget.product.image!,
                       width: 300,
                       height: 300,
                       fit: BoxFit.contain,
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      cacheManager: CacheManager(
+                          Config(
+                            "inter",
+                            stalePeriod: const Duration(days: 7),
+                            //one week cache period
+                          )
+                      ),
                     ),
+
                   ),
                 ),
               ),

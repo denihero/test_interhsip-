@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BlocBuilder<GetPostCubit, GetPostState>(
                 builder: (context, state) {
